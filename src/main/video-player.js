@@ -1,7 +1,6 @@
 import {EmbedPlayer} from 'embed-player';
 
 import "embed-player/src/embed-player.css";
-import "embed-player/src/chromecast-controls.css";
 
 (function () {
     const urlQueryString = window.location.search;
