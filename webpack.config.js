@@ -5,7 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 const config = {
-    entry: {main: './src/main/video-player.js', demo: './src/demo/chromecast-player.js'},
+    entry: {
+        main: './src/main/video-player.js',
+        demo: './src/demo/chromecast-player.js'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].js',
@@ -24,7 +27,16 @@ const config = {
     plugins: [
         new CopyPlugin({
             patterns: [{
-                from: path.resolve(__dirname, 'node_modules/embed-player/src/azure-media-player/**/*'),
+                from: path.resolve(__dirname, 'node_modules/embed-player/src/azure-media-player-2.3.4/**/*'),
+                context: "node_modules/embed-player/src"
+            }],
+            // for backward compatibility, copy the .js and .css
+            patterns: [{
+                from: path.resolve(__dirname, 'node_modules/embed-player/src/*.js'),
+                context: "node_modules/embed-player/src"
+            }],
+            patterns: [{
+                from: path.resolve(__dirname, 'node_modules/embed-player/src/*.css'),
                 context: "node_modules/embed-player/src"
             }],
         }),
