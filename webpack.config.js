@@ -28,16 +28,16 @@ const config = {
         new CopyPlugin({
             patterns: [{
                 from: path.resolve(__dirname, 'node_modules/embed-player/src/azure-media-player-2.3.4/**/*'),
-                context: "node_modules/embed-player/src"
-            }],
+                context: path.resolve(__dirname, 'node_modules/embed-player/src')
+            },
             // for backward compatibility, copy the .js and .css
-            patterns: [{
+            {
                 from: path.resolve(__dirname, 'node_modules/embed-player/src/*.js'),
-                context: "node_modules/embed-player/src"
-            }],
-            patterns: [{
+                context: path.resolve(__dirname, 'node_modules/embed-player/src')
+            },
+            {
                 from: path.resolve(__dirname, 'node_modules/embed-player/src/*.css'),
-                context: "node_modules/embed-player/src"
+                context: path.resolve(__dirname, 'node_modules/embed-player/src')
             }],
         }),
         new HtmlWebpackPlugin({
