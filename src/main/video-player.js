@@ -1,6 +1,6 @@
-import {EmbedPlayer} from 'embed-player';
+import {EmbedPlayer} from 'audienceplayer-embed-player';
 
-import "embed-player/src/embed-player.css";
+import "audienceplayer-embed-player/src/embed-player.css";
 
 (function () {
     const urlQueryString = window.location.search;

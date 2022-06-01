@@ -1,7 +1,7 @@
-import {EmbedPlayer, ChromecastControls} from 'embed-player';
+import {EmbedPlayer, ChromecastControls} from 'audienceplayer-embed-player';
 
-import "embed-player/src/embed-player.css";
-import "embed-player/src/chromecast-controls.css";
+import "audienceplayer-embed-player/src/embed-player.css";
+import "audienceplayer-embed-player/src/chromecast-controls.css";
 
 (function () {
     const urlQueryString = window.location.search;
