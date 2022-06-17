@@ -11,7 +11,7 @@
     "build-prod": "webpack --mode production"
   },
   "dependencies": {
-    "audienceplayer-embed-player": "git+https://github.com/AudiencePlayer/audienceplayer-embed-player/#1.7.0"
+    "audienceplayer-embed-player": "git+https://github.com/AudiencePlayer/audienceplayer-embed-player/#v1.7.0"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
