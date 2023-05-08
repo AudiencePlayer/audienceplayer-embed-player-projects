@@ -15,6 +15,7 @@ import "audienceplayer-embed-player/src/chromecast-controls.css";
     const posterImageUrl = urlParams.get('posterImageUrl');
     const autoplay = urlParams.get('autoplay');
     const chromecastReceiverAppId = urlParams.get('chromecastReceiverAppId');
+    const continueFromPreviousPosition = urlParams.get('continueFromPreviousPosition');
 
     const tokenParameter = token ? {token} : {};
     const posterImageUrlParameter = posterImageUrl ? {posterImageUrl} : {};
@@ -38,6 +39,7 @@ import "audienceplayer-embed-player/src/chromecast-controls.css";
                     projectId,
                     assetId,
                     ...tokenParameter,
+                    continueFromPreviousPosition: continueFromPreviousPosition ? continueFromPreviousPosition === 'true' : true
                 })
                 .catch((error) => console.error(error));
         } else {
@@ -51,6 +53,7 @@ import "audienceplayer-embed-player/src/chromecast-controls.css";
                     ...tokenParameter,
                     ...posterImageUrlParameter,
                     autoplay: autoplay && autoplay === 'true',
+                    continueFromPreviousPosition: continueFromPreviousPosition ? continueFromPreviousPosition === 'true' : true
                 })
                 .catch((error) => {
                     console.error(error);
