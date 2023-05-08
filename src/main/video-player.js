@@ -13,6 +13,7 @@ import "audienceplayer-embed-player/src/embed-player.css";
     const token = urlParams.get('token');
     const posterImageUrl = urlParams.get('posterImageUrl');
     const autoplay = urlParams.get('autoplay');
+    const continueFromPreviousPosition = urlParams.get('continueFromPreviousPosition');
 
     const tokenParameter = token ? {token} : {};
     const posterImageUrlParameter = posterImageUrl ? {posterImageUrl} : {};
@@ -29,6 +30,7 @@ import "audienceplayer-embed-player/src/embed-player.css";
             ...tokenParameter,
             ...posterImageUrlParameter,
             autoplay: autoplay && autoplay === 'true',
+            continueFromPreviousPosition: continueFromPreviousPosition ? continueFromPreviousPosition === 'true' : true
         })
         .catch((error) => {
             console.error(error);
