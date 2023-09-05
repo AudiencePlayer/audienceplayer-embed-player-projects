@@ -5,10 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 const config = {
-    entry: {
-        main: './src/main/video-player.js',
-        demo: './src/demo/chromecast-player.js'
-    },
+    entry: './src/video-player.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].js',
@@ -24,37 +21,22 @@ const config = {
             }
         ]
     },
+    devtool: 'source-map',
     plugins: [
         new CopyPlugin({
             patterns: [{
-                from: path.resolve(__dirname, 'node_modules/audienceplayer-embed-player/src/azure-media-player-2.3.10/**/*'),
-                context: path.resolve(__dirname, 'node_modules/audienceplayer-embed-player/src')
-            },
-            // for backward compatibility, copy the .js and .css
-            {
-                from: path.resolve(__dirname, 'node_modules/audienceplayer-embed-player/src/*.js'),
-                context: path.resolve(__dirname, 'node_modules/audienceplayer-embed-player/src')
+                from: path.resolve(__dirname, 'node_modules/audienceplayer-embed-player/dist/video.js'),
+                context: path.resolve(__dirname, 'node_modules/audienceplayer-embed-player/dist')
             },
             {
-                from: path.resolve(__dirname, 'node_modules/audienceplayer-embed-player/src/*.css'),
-                context: path.resolve(__dirname, 'node_modules/audienceplayer-embed-player/src')
+                from: path.resolve(__dirname, 'node_modules/audienceplayer-embed-player/dist/style.css'),
+                context: path.resolve(__dirname, 'node_modules/audienceplayer-embed-player/dist')
             },
-            // for backward compatibility, copy azure-media-player-2.3.4/ to azure-media-player/
-            {
-                from: path.resolve(__dirname, 'node_modules/audienceplayer-embed-player/src/azure-media-player-2.3.10/**/*'),
-                to: path.resolve(__dirname, 'dist/azure-media-player'),
-                context: path.resolve(__dirname, 'node_modules/audienceplayer-embed-player/src/azure-media-player-2.3.10/')
-            }
             ],
         }),
         new HtmlWebpackPlugin({
-            template: 'src/main/index.html',
+            template: 'src/index.html',
             chunks: ['main']
-        }),
-        new HtmlWebpackPlugin({
-            template: 'src/demo/index.html',
-            chunks: ['demo'],
-            filename: 'demo/index.html'
         }),
         new CleanWebpackPlugin(),
     ]

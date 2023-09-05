@@ -40,24 +40,16 @@ The default player:
 
 https://yourhost/?apiBaseUrl=[apiBaseUrl]&projectId=[projectId]&articleId=[articleId]&assetId=[assetId]
 
-The chomecast demo:
- 
-https://yourhost/demo/?apiBaseUrl=[apiBaseUrl]&projectId=[projectId]&articleId=[articleId]&assetId=[assetId]&chromecastReceiverAppId=[chromecastReceiverAppId]
-
 The following params will be available for you when you use the embed-player
 `apiBaseUrl`: the base url of the API
 
 `projectId`: your project id
 
-`chromecastReceiverAppId`: the chromecast receiver app id (when applicable)
-
 Choose an article and accompanying asset and use their id'for the params:
 `articleId`, `assetId`
 
 
-## Usage of the Azure media player in your project
+## Usage of video.js in your project
 
-As you will notice, the azure media player is not included as an entry in the webpack config, but it is copied.
-The reason is that the minified version does not lend itself be minified again.
-
-So you have to treat the library as static assets. To prevent any caching issues, the version is appended to the folder and you can still use older versions in the future.
+As you may notice, video.js and style.css are not included as an entry in the webpack config, but it are copied.
+They should be treated as a separate static assets.
